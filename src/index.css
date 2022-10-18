@@ -1,13 +1,260 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Global style */
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --light-grayish-blue: hsl(239, 57%, 85%);
+  --very-light-gray: hsl(228, 33%, 97%);
+  --moderate-blue: hsl(238, 40%, 52%);
+  --grayish-blue: hsl(211, 10%, 45%);
+  --light-gray: hsl(223, 19%, 93%);
+  --pale-red: hsl(357, 100%, 86%);
+  --dark-blue: hsl(212, 24%, 26%);
+  --soft-red: hsl(358, 79%, 66%);
+  --white: hsl(0, 0%, 100%);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Classes */
+
+.bg-white {
+  background-color: var(--white) !important;
+}
+
+.bg-light-blue {
+  background-color: var(--very-light-gray) !important;
+}
+
+.bg-blue {
+  background-color: var(--moderate-blue) !important;
+}
+
+.bg-red {
+  background-color: var(--soft-red) !important;
+}
+
+.bg-gray {
+  background-color: var(--grayish-blue) !important;
+}
+
+.current-user-badge {
+  background-color: var(--moderate-blue) !important;
+  color: var(--white) !important;
+  padding: 0.17rem 0.3rem;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  border-radius: 2px;
+}
+
+.dark-blue {
+  color: var(--dark-blue) !important;
+}
+
+.blue {
+  color: var(--moderate-blue) !important;
+}
+
+.red {
+  color: var(--soft-red) !important;
+}
+
+.blue-gray {
+  color: var(--light-grayish-blue) !important;
+}
+
+.grey {
+  color: var(--grayish-blue) !important;
+}
+
+.white {
+  color: var(--white) !important;
+}
+
+.bold {
+  font-weight: 500 !important;
+}
+
+.bolder {
+  font-weight: 700 !important;
+}
+
+@media (min-width: 768px) {
+  .width-fit {
+    width: fit-content !important;
+  }
+}
+
+.main-btn {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 0.5rem !important;
+  background-color: var(--moderate-blue) !important;
+  color: var(--white) !important;
+  padding: 0.75rem 0 !important;
+  width: 6rem;
+}
+
+.main-btn:hover {
+  opacity: 0.5;
+}
+
+@media (max-width: 767px) {
+  .main-btn {
+    padding: 0.5rem 0 !important;
+    width: 5rem;
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Typography */
+body {
+  font-family: "Rubik", sans-serif !important;
+}
+
+/* Layout */
+.page {
+  min-height: 100vh;
+}
+
+.votes-holder {
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+}
+
+.control-votes:hover,
+.voted {
+  color: var(--moderate-blue) !important;
+}
+
+@media (max-width: 767px) {
+  .votes-holder {
+    gap: 1rem;
+  }
+
+  .control-votes {
+    font-size: 0.8rem !important;
+  }
+}
+
+.votes {
+  font-size: 1.1rem;
+}
+
+.header-btns button:hover {
+  opacity: 0.5;
+}
+
+@media (max-width: 767px) {
+  .header-btns {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+.comment {
+  width: 38rem;
+}
+
+.reply {
+  width: 33rem;
+}
+
+@media (max-width: 767px) {
+  .comment,
+  .reply {
+    width: 100%;
+  }
+}
+
+.user-avatar {
+  width: 2.2rem;
+}
+
+@media (max-width: 767px) {
+  .user-avatar {
+    width: 1.8rem;
+  }
+}
+
+.replies {
+  border-left: 3px solid var(--light-gray);
+  padding-left: 2.5rem;
+}
+
+@media (max-width: 767px) {
+  .replies {
+    padding-left: 0.75rem;
+  }
+}
+
+.editArea {
+  border: 1px solid var(--grayish-blue) !important;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .form-check {
+    flex: 1;
+  }
+}
+
+form .user-pic {
+  width: 2.5rem;
+}
+
+@media (max-width: 767px) {
+  .form-check {
+    order: 1;
+    width: 100%;
+  }
+
+  form .pic-holder {
+    order: 2;
+  }
+
+  form .user-pic {
+    width: 1.8rem;
+  }
+
+  form .submit-btn {
+    order: 3;
+    margin-left: auto;
+  }
+}
+
+textarea {
+  resize: none !important;
+  border: 1px solid var(--light-gray);
+  display: block;
+  height: 6rem;
+}
+
+textarea:focus-visible {
+  outline-color: var(--grayish-blue);
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialoge {
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .dialoge {
+    width: 24rem;
+  }
 }
